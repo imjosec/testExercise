@@ -37,13 +37,13 @@ public class TradingStrategy implements PriceListener {
         if(nonNull(security) && validDouble(price)) {
             if (Objects.equals(tradingStrategyData.getSecurity(), security)) {
                 if (tradingStrategyData.getSide() == TradingStrategyData.Side.BUY) {
-                    if (price < tradingStrategyData.getPrice()) {
+                    if (price <= tradingStrategyData.getPrice()) {
                         executionService.buy(security, price, tradingStrategyData.getSize());
                         // assuming that we only want one execution
                         priceSource.removePriceListener(this);
                     }
                 } else {
-                    if (price > tradingStrategyData.getPrice()) {
+                    if (price >= tradingStrategyData.getPrice()) {
                         executionService.sell(security, price, tradingStrategyData.getSize());
                         // assuming that we only want one execution
                         priceSource.removePriceListener(this);

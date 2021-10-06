@@ -51,6 +51,7 @@ public class TradingStrategyTest {
         return Arrays.asList(new Object[][]{
             {"Buy Strategy - Feed Price low - Create Order", new TradingStrategyData("IBM", 55.0, 100, BUY), true, "IBM", 50.0, true},
             {"Buy Strategy - Feed Price high - No Order", new TradingStrategyData("IBM", 55.0, 100, BUY), true, "IBM", 60.0, false},
+            {"Buy Strategy - Feed Price same - Create Order", new TradingStrategyData("IBM", 55.0, 100, BUY), true, "IBM", 60.0, false},
             {"Buy Strategy - Different Security - No Order", new TradingStrategyData("IBM", 55.0, 100, BUY), true, "XXX", 50.0, false},
             {"Buy Strategy - Null Feed Security - No Order", new TradingStrategyData("IBM", 55.0, 100, BUY), true, null, 50.0, false},
             {"Buy Strategy - Negative Feed Price - No Order", new TradingStrategyData("IBM", 55.0, 100, BUY), true, "IBM", -1.0, false},
@@ -60,6 +61,7 @@ public class TradingStrategyTest {
             {"Buy Strategy - Invalid Feed Price 3 - No Order", new TradingStrategyData("IBM", 55.0, 100, BUY), true, "IBM", POSITIVE_INFINITY, false},
             {"Sell Strategy - Feed Price High - Create Order", new TradingStrategyData("IBM", 55.0, 100, SELL), true, "IBM", 60.0, true},
             {"Sell Strategy - Feed Price Low - No Order", new TradingStrategyData("IBM", 55.0, 100, SELL), true, "IBM", 50.0, false},
+            {"Sell Strategy - Feed Price Same - Create Order", new TradingStrategyData("IBM", 55.0, 100, SELL), true, "IBM", 55.0, true},
             {"Sell Strategy - Different Security - No Order", new TradingStrategyData("IBM", 55.0, 100, SELL), true, "XXX", 60.0, false},
             {"Sell Strategy - Null Feed Security - No Order", new TradingStrategyData("IBM", 55.0, 100, SELL), true, null, 60.0, false},
             {"Sell Strategy - Negative Feed Price - No Order", new TradingStrategyData("IBM", 55.0, 100, SELL), true, "IBM", -1.0, false},
